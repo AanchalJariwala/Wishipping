@@ -1,0 +1,36 @@
+.input-container{
+    text-align: center;
+    margin: 10px;
+
+}
+
+.button-container{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: white;
+    cursor: pointer;
+    background-color:#4f005f;
+    max-width: 100px;
+    margin-left: 38%;
+    
+}
+.title{
+    text-align: center;
+    font-size: 25px;
+    
+}
+.img{
+    opacity: 0.5;
+  display: block;
+  width:100px;
+  height:50px;
+}
+/* div.gallery{
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: right;
+    width: 300px;
+    
+} */
+

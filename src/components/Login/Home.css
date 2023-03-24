@@ -1,0 +1,13 @@
+.background {
+
+    background-image: url('b5.jpg');
+    background-size: cover;
+    height: 90vh;
+    /* background-position: center; */
+    /* top: 0%; */
+    right: 0%;
+
+    margin-top: -90px;
+
+    background-repeat: 'no-repeat';
+}
