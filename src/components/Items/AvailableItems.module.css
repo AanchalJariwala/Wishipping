@@ -14,8 +14,17 @@
     margin: 0;
     padding: 0;
   }
- 
-  
+  /* img {
+    height: 110px;
+    width: 110px;
+    margin-left: 5%;
+    display: inline-block;
+}
+  */
+  .sameline{
+    display: flex;
+    
+  }
   @keyframes items-appear {
     from {
       opacity: 0;

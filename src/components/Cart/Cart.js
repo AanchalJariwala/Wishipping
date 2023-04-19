@@ -3,6 +3,7 @@ import Modal from '../UI/Modal';
 import { useContext } from 'react';
 import CartContext from '../../store/cart-context';
 import CartItem from './CartItem';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const cartCtx = useContext(CartContext);
@@ -42,7 +43,7 @@ const Cart = (props) => {
         </div>
         <div className={classes.actions}>
             <button className={classes['button--alt']} onClick={props.onClose}>Close</button>
-            {hasItems && <button className={classes.button}>Order</button>}
+            {hasItems && <Link to='/thankyou'><button className={classes.button}>Order</button></Link>}
         </div>
     </Modal>)
 }

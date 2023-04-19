@@ -3,7 +3,7 @@ import CartProvider from './store/CartProvider';
 import './App.css';
 import Items from './components/Items/Items';
 // import Login from './components/Login/Login.js'
-//import Home from './components/Login/Home';
+import Home from './components/Login/Home';
 import Header from './components/Layout/Header';
 import Cart from './components/Cart/Cart';
 
@@ -20,19 +20,19 @@ function App() {
   }
 
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={HideCartHandler}/>}
-      <Header onShowCart={ShowCartHandler}/>
-        <main>
-          <Items />
-          
-        </main>
-      
-      {/* <Home>
+    // <Home>
 
-     </Home> */}
-    </CartProvider>
-  );
+    // </Home>
+     <CartProvider>
+      {cartIsShown && <Cart onClose={HideCartHandler}/>} 
+       <Header onShowCart={ShowCartHandler}/> 
+         <main>
+          <Items />
+      
+        </main>
+   </CartProvider> 
+  )
 }
+
 
 export default App;

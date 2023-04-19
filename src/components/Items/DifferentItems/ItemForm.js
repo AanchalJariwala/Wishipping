@@ -27,7 +27,7 @@ const ItemForm = (props) => {
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
-      <Input
+      <Input 
         ref={amountInputRef}
         label='Amount'
         input={{

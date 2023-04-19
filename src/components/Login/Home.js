@@ -2,12 +2,12 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./Login.css";
-import Card from "../UI/Card";
 import classes from '../UI/Button.module.css';
-//import image from '../../Images/b5.jpg';
-//import logo from 'logo_shopping.jpg';
 import './Home.css';
-
+import HomeCardDesign from "../UI/HomeCardDesign";
+import { Link } from "react-router-dom";
+import logo from '../../../src/Images/app_logo1.jpg';
+import  './Home.css';
 
 //const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
@@ -26,6 +26,7 @@ const validationSchema = Yup.object(
 )
 
 const Home = () => {
+    
     const initialValues = {
         username: "", email: "", password: "",
     }
@@ -44,22 +45,29 @@ const Home = () => {
     //const URL ="https://1drv.ms/f/s!ApT255WjZx3jiJ9JaRYHlxYiKQjlNw?e=5znZd4";
     const imgMyimageexample = require('./b5.jpg');
     const divStyle = {
-        width: "100vw",
-        height: '100vh',
+        width: "99vw",
+        height: '105vh',
         backgroundImage: `url(${imgMyimageexample})`,
         backgroundSize: 'cover',
         marginTop: '-70px',
+        overflowY: 'hidden', /* Hide vertical scrollbar */
+        overflowX: 'hidden',
     };
+    // const handleClick = () => {
+    //     {
+    //        if (validationSchema) {
+    //         window.location.href = "/HomePage"
+    //        }
+    // }
+    // (validationSchema)?(window.location.href = "/HomePage")
+    // (condition) ? (if true this component gets displayed) :(else this component gets displayed)
     return (
         <div style={divStyle}>
 
-            <Card>
-
-                {/* <div className="img">
-                    <img src="Images/logo_shopping.jpg" /> 
-            </div>  */}
+            <HomeCardDesign>
                 <div className="title">
-                    Welcome to Instant-Get
+                <img src={logo} className='imglogo'></img>
+                    <h3>Welcome to Wishipping</h3>
                 </div>
 
 
@@ -70,7 +78,9 @@ const Home = () => {
                             flexDirection: "column",
                             maxWidth: "350px",
                             margin: "auto",
-                            marginTop: "70px",
+                            marginTop: "40px",
+                            fontSize:"20px",
+                        
 
                         }
                     }
@@ -84,6 +94,7 @@ const Home = () => {
                         id="username"
                         onChange={formik.handleChange}
                         placeholder="Username"
+                        style={{fontSize:"18px",}}
                     />
                     {formik.errors.username}
 
@@ -93,6 +104,7 @@ const Home = () => {
                         id="email"
                         onChange={formik.handleChange}
                         placeholder="Email"
+                        style={{fontSize:"18px",}}
                     />
                     {formik.errors.email}
 
@@ -103,16 +115,17 @@ const Home = () => {
                         type="password"
                         onChange={formik.handleChange}
                         placeholder="Password"
+                        style={{fontSize:"18px",}}
                     />
                     {formik.errors.password}
 
-                    <button className={classes.button} type="submit">Sign-in</button>
-
+                 <Link to='/HomePage'> <button 
+                //    onClick={handleClick}
+                   className={classes.button} type="submit">Sign-in</button></Link> 
 
                 </form>
-            </Card>
+            </HomeCardDesign>
         </div>
-    )
-        ;
+    ) ;
 }
 export default Home;

@@ -1,9 +1,11 @@
 .item{
-    /* display: inline-block; */
-    justify-content: space-between;
+    display: flex;
+    justify-content:space-between;
     margin: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #ccc;
+    margin-left: 2%;
+    font-size: 22px;
 
   }
   
@@ -13,13 +15,20 @@
   
   .description {
     font-style: italic;
+    /* text-overflow: clip; */
+    white-space: nowrap;
+        /* overflow: hidden; */
+   font-size: 22px;
   }
   
   .price {
     
-    
+    /* margin-right: 15%; */
     margin-top: 0.25rem;
     font-weight: bold;
     color: #ad5502;
     font-size: 1.25rem;
+  }
+  .align{
+    margin-left: 40px;
   }

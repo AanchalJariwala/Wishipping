@@ -1,8 +1,4 @@
-.input-container{
-    text-align: center;
-    margin: 10px;
 
-}
 
 .button-container{
     text-align: center;
@@ -15,11 +11,7 @@
     margin-left: 38%;
     
 }
-.title{
-    text-align: center;
-    font-size: 25px;
-    
-}
+
 .img{
     opacity: 0.5;
   display: block;

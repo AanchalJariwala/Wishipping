@@ -11,3 +11,21 @@
 
     background-repeat: 'no-repeat';
 }
+.input-container{
+    text-align: center;
+    /* margin: 10px; */
+    /* margin-top: 1%; */
+
+}
+.imglogo{
+    width:65px;
+    height: 45px;
+    border-radius: 10px;
+    }
+
+    .title{
+        text-align: center;
+        font-size: 25px;
+      
+        
+    }
