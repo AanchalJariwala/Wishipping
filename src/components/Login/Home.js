@@ -7,7 +7,8 @@ import './Home.css';
 import HomeCardDesign from "../UI/HomeCardDesign";
 import { Link } from "react-router-dom";
 import logo from '../../../src/Images/app_logo1.jpg';
-import  './Home.css';
+import * as axios from 'axios';
+import { BASE_URL } from '../../contants';
 
 //const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
@@ -22,23 +23,34 @@ const validationSchema = Yup.object(
         password: Yup.string()
             .required('Password is essential')
             .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/, 'Password must contain min 5 characters, 1 uppercase letter, 1 lowercase letter & 1 numeric digit'),
+
     }
+
 )
 
 const Home = () => {
-    
+
     const initialValues = {
         username: "", email: "", password: "",
     }
     const formik = useFormik({
         initialValues, validationSchema,
         onSubmit: async (input) => {
-            try {
-                console.log(input)
-            }
-            catch (error) {
-                console.log(error)
-            }
+
+            const { username, password } = input;
+
+            axios.default.post(
+                `${BASE_URL}/login`, 
+                { username, password }
+                )
+                .then((value) => {   ///promise
+                    console.log(value);
+                })
+                .catch((error) => {
+                    console.error("error", error);
+                })
+            
+            console.log(input)
         }
     }
     )
@@ -53,6 +65,7 @@ const Home = () => {
         overflowY: 'hidden', /* Hide vertical scrollbar */
         overflowX: 'hidden',
     };
+
     // const handleClick = () => {
     //     {
     //        if (validationSchema) {
@@ -65,9 +78,10 @@ const Home = () => {
         <div style={divStyle}>
 
             <HomeCardDesign>
-                <div className="title">
-                <img src={logo} className='imglogo'></img>
-                    <h3>Welcome to Wishipping</h3>
+                <div >
+                    <img src={logo} className='imglogo'></img>
+                    
+                    <h3 className="title" >Welcome to Wishipping</h3>
                 </div>
 
 
@@ -79,9 +93,7 @@ const Home = () => {
                             maxWidth: "350px",
                             margin: "auto",
                             marginTop: "40px",
-                            fontSize:"20px",
-                        
-
+                            fontSize: "20px",
                         }
                     }
 
@@ -94,7 +106,7 @@ const Home = () => {
                         id="username"
                         onChange={formik.handleChange}
                         placeholder="Username"
-                        style={{fontSize:"18px",}}
+                        style={{ fontSize: "18px", }}
                     />
                     {formik.errors.username}
 
@@ -104,7 +116,7 @@ const Home = () => {
                         id="email"
                         onChange={formik.handleChange}
                         placeholder="Email"
-                        style={{fontSize:"18px",}}
+                        style={{ fontSize: "18px", }}
                     />
                     {formik.errors.email}
 
@@ -115,17 +127,17 @@ const Home = () => {
                         type="password"
                         onChange={formik.handleChange}
                         placeholder="Password"
-                        style={{fontSize:"18px",}}
+                        style={{ fontSize: "18px", }}
                     />
                     {formik.errors.password}
 
-                 <Link to='/HomePage'> <button 
-                //    onClick={handleClick}
-                   className={classes.button} type="submit">Sign-in</button></Link> 
+                    <button
+                        //    onClick={handleClick}
+                        className={classes.button} type="submit">Sign-in</button>
 
                 </form>
             </HomeCardDesign>
         </div>
-    ) ;
+    );
 }
 export default Home;

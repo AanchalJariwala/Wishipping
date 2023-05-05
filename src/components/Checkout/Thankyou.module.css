@@ -14,3 +14,26 @@
 
       }
 
+      .button {
+        font-size: xx-large;
+        border: 1px solid #4f005f;
+        background: #090909;
+        color: white;
+        padding: 0.25rem 1rem;
+        cursor: pointer;
+        max-width:max-content;
+       margin-left: 40%;
+        margin-top: 10%;
+       border-radius: 1rem;
+      }
+      
+      .button:hover,
+      .button:active {
+        background: #4e4d4f;
+        border-color: #0d0d0d;
+      }
+      
+      .button:focus {
+        outline: none;
+      }
+  

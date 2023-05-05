@@ -21,11 +21,15 @@
     width:65px;
     height: 45px;
     border-radius: 10px;
+    margin-left: 15em;
     }
 
-    .title{
+    .title
+    {
         text-align: center;
         font-size: 25px;
-      
+        margin-left: 5em;
+      /* max-width: max-content;
+      white-space: nowrap; */
         
     }

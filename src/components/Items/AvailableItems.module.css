@@ -4,11 +4,10 @@
     margin: 2rem auto;
     animation: meals-appear 1s ease-out forwards;
     /* background-color: rgb(78, 77, 77); */
-    
-    
-  
-  }
-  
+   
+   
+    }
+
   .items ul {
     list-style: none;
     margin: 0;
@@ -23,7 +22,7 @@
   */
   .sameline{
     display: flex;
-    
+
   }
   @keyframes items-appear {
     from {

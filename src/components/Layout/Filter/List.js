@@ -1,24 +1,70 @@
 import React from 'react'
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, FormCheck } from "react-bootstrap";
 import { useState } from 'react';
 import './List.css';
+import setFilteredlabel from '../../Items/Items';
+import filteredlabel from '../../Items/Items'
+import AvailableItems from '../../Items/AvailableItems';
+import Items from '../../Items/Items';
+import DUMMY_ITEMS from '../../Items/AvailableItems';
 
-
-const List = () => {
-
-   const [rate, setRate] = useState(2)
-
-  return (
-    <div className="filters">
-      <div className='filter-box'>
-        <h2 >Filter by Category</h2>
-        <span>Clothing</span><br/>
-        <span>Cosmetics and Body Care</span><br/>
-        <span>Home Decor</span><br/>
-      </div>
-
-    </div>
-  );
+const List = (props) => {
+  const ChangeHandler = (label) => {
+    console.log('filter value',label);
+    props.setFilteredlabel(label.target.value);
 };
 
-export default List;
+  // const ChangeHandler = (event) => {
+  //   props.onChangeFilter(event.target.value);
+  // };
+    return (
+      <div className="filters">
+        <label class='title'>Filter by Category</label>
+
+        <div
+          //  id="category-input"
+          //  value={selectedCategory}
+          //  onChange={handleCategoryChange}
+      
+        >
+          <button class="view" onClick={ChangeHandler} value='Clothing'>Clothing</button><br />
+          <button class="view" onClick={ChangeHandler} value="Cosmetics and Body care">Cosmetics and Body care</button><br />
+          <button class="view" onClick={ChangeHandler} value="Home Decor">Home Decor</button><br />
+          <button class="view" onClick={ChangeHandler} value="">All</button>
+
+        </div>
+      </div>
+    );
+  };
+
+  export default List;
+
+/* <span>
+//           <Form.Check
+//             inline
+//             label=" Clothing"
+      
+//             type="checkbox"
+      
+
+//           />
+//         </span>
+  
+//         <span>
+//           <Form.Check
+//             inline
+//             label=" Cosmetics and Body care"
+     
+//             type="checkbox"
+//             id={`inline-2`}
+
+//           /></span>
+//         <span>
+//           <Form.Check
+//             inline
+//             label=" Home Decor"
+      
+//             type="checkbox"
+//             id={`inline-3`}
+
+//           /></span> */

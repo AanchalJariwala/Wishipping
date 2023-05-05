@@ -1,13 +1,15 @@
 .item{
-    display: flex;
+    display:flex;
     justify-content:space-between;
     margin: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #ccc;
+    /* border-bottom-left-radius: 4em; */
     margin-left: 2%;
     font-size: 22px;
-
   }
+  
+  
   
   .item h3 {
     margin: 0 0 0.25rem 0;
@@ -16,9 +18,14 @@
   .description {
     font-style: italic;
     /* text-overflow: clip; */
-    white-space: nowrap;
+    /* white-space: nowrap; */
         /* overflow: hidden; */
    font-size: 22px;
+   /* display:block; */
+   max-width:400px;
+   /* word-wrap:break-word; */
+   /* display: flex; */
+   /* flex-wrap: wrap; */
   }
   
   .price {
@@ -28,7 +35,9 @@
     font-weight: bold;
     color: #ad5502;
     font-size: 1.25rem;
+    
   }
   .align{
     margin-left: 40px;
   }
+  

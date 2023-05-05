@@ -1,11 +1,16 @@
 .form {
 
 /* margin-right: 20px; */
-margin-left: 190px;
-align-items:end;
+/* margin-left: 190px; */
+/* justify-items: end; */
+/* justify-content: flex-end; */
+/* /margin-right: 100px; */
+position:absolute;
+right: 10em;
+
 
 }
- 
+
 
 .form button {
   font: inherit;
@@ -23,4 +28,8 @@ align-items:end;
 .form button:active {
   background-color: #641e03;
   border-color: #641e03;
+}
+.btnalign{
+  /* text-align: right;  */
+
 }

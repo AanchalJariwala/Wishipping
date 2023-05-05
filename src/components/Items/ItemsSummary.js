@@ -5,7 +5,7 @@ const ItemsSummary = () => {
         <section className={classes.summary}>
             <h2>Shop anytime, anywhere</h2>
             <p>
-                Choose your favorite items from our broad selection of available items
+                Choose your favourite items from our broad selection of available items
                 and enjoy shopping
             </p>
             <p>
