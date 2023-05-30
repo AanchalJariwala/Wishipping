@@ -5,7 +5,7 @@ import "./Login.css";
 import classes from '../UI/Button.module.css';
 import './Home.css';
 import HomeCardDesign from "../UI/HomeCardDesign";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../../../src/Images/app_logo1.jpg';
 import * as axios from 'axios';
 import { BASE_URL } from '../../contants';
@@ -29,6 +29,7 @@ const validationSchema = Yup.object(
 )
 
 const Home = () => {
+    const navigate= useNavigate();
 
     const initialValues = {
         username: "", email: "", password: "",
@@ -45,6 +46,7 @@ const Home = () => {
                 )
                 .then((value) => {   ///promise
                     console.log(value);
+                    navigate('/HomePage');
                 })
                 .catch((error) => {
                     console.error("error", error);
@@ -81,7 +83,7 @@ const Home = () => {
                 <div >
                     <img src={logo} className='imglogo'></img>
                     
-                    <h3 className="title" >Welcome to Wishipping</h3>
+                    <h3 className="title">Welcome to Wishipping</h3>
                 </div>
 
 
@@ -132,7 +134,7 @@ const Home = () => {
                     {formik.errors.password}
 
                     <button
-                        //    onClick={handleClick}
+                        // onClick={handleClick}
                         className={classes.button} type="submit">Sign-in</button>
 
                 </form>

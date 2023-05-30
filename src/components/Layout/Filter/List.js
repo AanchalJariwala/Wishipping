@@ -19,7 +19,7 @@ const List = (props) => {
   // };
     return (
       <div className="filters">
-        <label class='title'>Filter by Category</label>
+        <label className='title'>Filter by Category</label>
 
         <div
           //  id="category-input"
@@ -27,10 +27,10 @@ const List = (props) => {
           //  onChange={handleCategoryChange}
       
         >
-          <button class="view" onClick={ChangeHandler} value='Clothing'>Clothing</button><br />
-          <button class="view" onClick={ChangeHandler} value="Cosmetics and Body care">Cosmetics and Body care</button><br />
-          <button class="view" onClick={ChangeHandler} value="Home Decor">Home Decor</button><br />
-          <button class="view" onClick={ChangeHandler} value="">All</button>
+          <button className={props.filteredlabel == 'Clothing' ? 'active view': 'view'} onClick={ChangeHandler} value='Clothing'>Clothing</button><br />
+          <button className={props.filteredlabel == 'Cosmetics and Body care' ? 'active view': 'view'} onClick={ChangeHandler} value="Cosmetics and Body care">Cosmetics and Body care</button><br />
+          <button className={props.filteredlabel == 'Home Decor' ? 'active view': 'view'}  onClick={ChangeHandler} value="Home Decor">Home Decor</button><br />
+          <button className={props.filteredlabel == '' ? 'active view': 'view'}  onClick={ChangeHandler} value="">All</button>
 
         </div>
       </div>

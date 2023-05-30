@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import classes from './Header.module.css';
 import image from '../../Images/p1.jpg';
 import HeaderCartButton from "./HeaderCartButton";
-import { Container,Button } from "react-bootstrap";
+import {Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from '../../../src/Images/app_logo1.jpg'
 
@@ -21,7 +21,7 @@ const Header=(props)=>{
             </header >
             
             <div className={classes['main-image']}>
-                <img src={image} alt="Welcome to shop anytime ANYWHERE" />
+                <img src={image} alt="Welcome to shop anytime, ANYWHERE" />
             </div>
         </Fragment>
     )

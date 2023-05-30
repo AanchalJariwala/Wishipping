@@ -2,7 +2,7 @@
     margin: 1rem 0;
     white-space:nowrap;
     height:max-content;
-    overflow: hidden;
+    overflow:scroll;
     text-align: center;
     font-size: x-large;
   }
@@ -44,11 +44,14 @@
     border: none;
     border-radius: 25px;
     padding: 0.5rem 2rem; 
+    position: relative;
+   top:10px;
   }
   
   .actions button:hover,
   .actions button:active {
     background-color:white;
+   
   }
   
   .actions .submit {

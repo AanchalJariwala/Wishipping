@@ -13,7 +13,7 @@ const Items = () => {
 
             <ItemsSummary />
             <div className='aaa'>
-                <List setFilteredlabel={setFilteredlabel} />
+                <List setFilteredlabel={setFilteredlabel} filteredlabel={filteredlabel} />
                 <AvailableItems selected={filteredlabel}/>
             </div>
 
