@@ -1,6 +1,6 @@
 import classes from './AvailableItems.module.css';
 import Card from '../UI/Card';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DifferentItems from './DifferentItems/DifferentItems.js';
 import i1 from "./ProductImages/cotton_shirt.webp";
 import i2 from "./ProductImages/jeans.jpg";
@@ -22,6 +22,7 @@ import i17 from "./ProductImages/wall_shelves.jpg";
 import i18 from "./ProductImages/vase.jpg";
 import filteredlabel from '../Items/Items';
 import ChangeHandler from '../Items/Items';
+import * as axios from 'axios';
 
 const DUMMY_ITEMS = [
     {
@@ -173,8 +174,22 @@ const DUMMY_ITEMS = [
 
 const AvailableItems = (props) => {
 
+    const productItems = DUMMY_ITEMS;
 
-    const ItemList = DUMMY_ITEMS.map((item) => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        console.log("Use Effect called");
+        axios.default.get("http://localhost:8001/products")
+        .then((response) => {
+            console.log(response.data);
+            setProducts(response.data['products']);
+        });
+        
+    }, []);
+
+
+    const ItemList = products.map((item) => {
         if (props.selected == '') {
             return (<div className={classes.sameline}>
                 <DifferentItems
@@ -213,7 +228,6 @@ const AvailableItems = (props) => {
 
             </Card>
         </section>
-
     )
 }
 export default AvailableItems;
