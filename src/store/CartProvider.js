@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import CartContext from "./cart-context";
 
 const defaultCartState = {
+    products:[],
     totalAmount: 0,
     items: [],
 }
@@ -59,6 +60,11 @@ const CartReducer = (state, action) => {
     if (action.type === "CLEAR") {
         return defaultCartState
     }
+    if(action.type === 'FETCH-P'){
+        return {
+            ...state, products:action.products
+        }
+    }
     return defaultCartState;
 };
 
@@ -77,12 +83,18 @@ const CartProvider = (props) => {
     const clearCartHandler=()=>{
        dispatchCartAction({type:"CLEAR"}); 
     }
+
+    const fetchProducts =(products)=>{
+        dispatchCartAction({type:'FETCH-P', products});
+    }
     const cartContext = {
+        products:cartState.products,
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemToCartHandler,
         removeItem: removeItemFromCartHandler,
-        clearCart:clearCartHandler
+        clearCart:clearCartHandler,
+        fetchProducts: fetchProducts,
     }
 
     return <CartContext.Provider value={cartContext}>

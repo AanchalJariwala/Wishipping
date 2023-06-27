@@ -10,7 +10,6 @@ const Display = (props) => {
   
     return (
       <div>
-    
           <List
             selected={filteredlabel}
             onChangeFilter={filterChangeHandler}

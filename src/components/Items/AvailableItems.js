@@ -1,13 +1,13 @@
 import classes from './AvailableItems.module.css';
 import Card from '../UI/Card';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createContext, useContext, useReducer } from 'react'
 import DifferentItems from './DifferentItems/DifferentItems.js';
 import i1 from "./ProductImages/cotton_shirt.webp";
-import i2 from "./ProductImages/jeans.jpg";
+import i2 from "./ProductImages/jeans.webp";
 import i3 from "./ProductImages/top.webp";
 import i4 from "./ProductImages/kurti.webp";
-import i5 from "./ProductImages/Tshirt.webp";
-import i6 from "./ProductImages/collar_tshirt.avif";
+import i5 from "./ProductImages/Tshirt.jpg";
+import i6 from "./ProductImages/Tshirt_men.webp";
 import i7 from "./ProductImages/BB_cream.avif";
 import i8 from "./ProductImages/eye_shadow.jpg";
 import i9 from "./ProductImages/body_scrub.jpg";
@@ -23,6 +23,9 @@ import i18 from "./ProductImages/vase.jpg";
 import filteredlabel from '../Items/Items';
 import ChangeHandler from '../Items/Items';
 import * as axios from 'axios';
+import CartContext from '../../store/cart-context';
+
+
 
 const DUMMY_ITEMS = [
     {
@@ -69,7 +72,7 @@ const DUMMY_ITEMS = [
         id: 'm6',
         imgUrl: `${i6}`,
         name: 'Collar Tshirt',
-        description: 'Polo T-Shirt with Logo Embroidery',
+        description: 'Slim Fit Polo T-Shirt',
         price: 15.3,
         label: "Clothing"
     },
@@ -173,53 +176,43 @@ const DUMMY_ITEMS = [
 ];
 
 const AvailableItems = (props) => {
-
+    
+    const cartContext = useContext(CartContext);
+    console.log('cart-context',cartContext)
     const productItems = DUMMY_ITEMS;
 
-    const [products, setProducts] = useState([]);
+    
 
-    useEffect(() => {
-        console.log("Use Effect called");
-        axios.default.get("http://localhost:8001/products")
-        .then((response) => {
-            console.log(response.data);
-            setProducts(response.data['products']);
-        });
-        
-    }, []);
-
-
-    const ItemList = products.map((item) => {
-        if (props.selected == '') {
-            return (<div className={classes.sameline}>
-                <DifferentItems
-                    // onChange={(event) => ChangeHandler(event.target.value)}
-                    // value={filteredlabel}
-                    id={item.id}
-                    key={item.id}
-                    image={item.imgUrl}
-                    name={item.name}
-                    description={item.description}
-                    price={item.price}
-                />
-            </div>)
-        } else if (props.selected == item.label) {
-            return (
-                <div className={classes.sameline}>
-                    <DifferentItems
-                        // onChange={(event) => ChangeHandler(event.target.value)}
-                        // value={filteredlabel}
-                        id={item.id}
-                        key={item.id}
-                        image={item.imgUrl}
-                        name={item.name}
-                        description={item.description}
-                        price={item.price}
-                    />
-                </div>
-            )
-        }
-    });
+    const ItemList = cartContext.products.map(item=>{
+        console.log('--------------->>',props.selected);
+       if(props.selected == ''){
+        return (<div className={classes.sameline}>
+            <DifferentItems
+                // onChange={(event) => ChangeHandler(event.target.value)}
+                // value={filteredlabel}
+                id={item.id}
+                key={item.id}
+                image={item.imgUrl}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+            />
+        </div>)
+       } else if(props.selected == item.label){
+        return (<div className={classes.sameline}>
+            <DifferentItems
+                // onChange={(event) => ChangeHandler(event.target.value)}
+                // value={filteredlabel}
+                id={item.id}
+                key={item.id}
+                image={item.imgUrl}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+            />
+        </div>)
+       }
+    })
 
     return (
         <section className={classes.items}>

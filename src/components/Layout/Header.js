@@ -13,7 +13,7 @@ const Header=(props)=>{
             <header className={classes.header}>
                 
                     <img src={logo} className={classes.imglogo}></img>
-                    <h1 >Wishipping</h1>
+                    <h1>Wishipping</h1>
                 
                 <HeaderCartButton onClick={props.onShowCart}/>
 

@@ -1,9 +1,6 @@
 import classes from './CartItem.module.css';
 import Cart from './Cart';
 
-
-
-
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
 
@@ -27,9 +24,6 @@ const CartItem = (props) => {
           
           </div>
         </div>
-
-
-      
         
       </div>
       <div className={classes.actions}>
@@ -37,10 +31,6 @@ const CartItem = (props) => {
         <button onClick={props.onRemove}>−</button>
         <button onClick={props.onAdd}>+</button>
       
- 
-
-
- 
       </div>
     </li>
   );
